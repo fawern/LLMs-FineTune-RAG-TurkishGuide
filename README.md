@@ -1,38 +1,46 @@
-# LLMs-FineTune-TurkishSource
+# Büyük Dil Modelleri (LLM) Nedir?
 
-## Large Language Model(Büyük Dil Modeli) Nedir?
+## Genel Bakış
 
-Büyük Dil Modelleri (LLM - Large Language Models), büyük miktarda metin verisi üzerinde eğitilmiş ve genellikle milyarlarca parametreye sahip olan yapay zeka modelleridir. Bu modeller, dil anlama ve üretme görevlerinde son derece başarılıdır ve çeşitli doğal dil işleme (NLP) görevlerinde kullanılır.
+**Büyük Dil Modelleri (LLM - Large Language Models)**, büyük miktarda metin verisi üzerinde eğitilmiş ve genellikle milyarlarca parametreye sahip olan yapay zeka modelleridir. Bu modeller, **dil anlama** ve **metin üretme görevlerinde** son derece başarılıdır ve çeşitli doğal dil işleme (NLP) görevlerinde kullanılır.
 
-Örneğin, GPT-3, BERT ve T5 gibi modeller, metinleri anlamada ve yeni metinler üretmede oldukça etkilidir. GPT-3, özellikle metin üretme konusunda harikalar yaratır; bir hikaye yazmak, bir makale oluşturmak veya bir müşteri hizmetleri botu oluşturmak için kullanılabilir. Diyelim ki bir yazılım geliştirme forumunda bir soru sordunuz; GPT-3, bu soruya anlamlı ve detaylı bir yanıt verebilir.
+LLM üzerine konuşup RNN, LSTM, GRU, Transformer gibi teknolojilere de değinmek gerekmektedir.
 
-BERT, metinleri anlamada üstün performans gösterir. Örneğin, bir metindeki boşlukları doldurmak, metinleri sınıflandırmak (duygu analizi gibi) veya soruları yanıtlarken metinlerdeki ilgili bölümleri bulmak için kullanılır. Örneğin, BERT, bir haber makalesinin duygusal tonunu (pozitif, negatif, nötr) belirleyebilir veya bir metinde belirtilen önemli kişiler ve yerler hakkında soruları yanıtlayabilir.
+### RNN (Recurrent Neural Networks)
 
-T5 ise, çeşitli dil görevlerinde esnekliği ile bilinir. Örneğin, metin özetleme, çeviri ve soruları yanıtlama gibi görevlerde kullanılabilir. Diyelim ki akademik bir makaleyi özetlemek istiyorsunuz; T5, makaleyi kısa ve öz bir şekilde özetleyerek, ana noktaları hızlıca anlamanızı sağlar.
+RNN'ler, sıralı verilerle çalışmak üzere tasarlanmıştır. Her adımda, girdi ve önceki gizli durumu kullanarak yeni bir gizli durum üretirler.
+RNN'ler, özellikle uzun cümlelerde ve bağımlılıklarda zorluk yaşarlar. Bu nedenle, daha gelişmiş modeller tercih edilebilir. Bu durumun en temel sebebi **Vanishing Gradient** ve **Exploding Gradient** problemleridir.
+Bu problemler geriye doğru yayılım (backpropagation) sırasında, ağırlıkların güncellenmesi sırasında karşılaşılan problemlerdir.
 
-RNN, Transformer ve Attention Mekanizmaları
-LLM'lerin başarısının arkasında çeşitli teknolojiler ve mimariler bulunmaktadır. Bunlardan bazıları RNN (Recurrent Neural Networks), Transformer ve Attention mekanizmalarıdır.
+Bu sorunlara çözüm olarak LSTM ve GRU modelleri geliştirilmiştir.
 
-RNN (Recurrent Neural Networks)
-RNN'ler, sıralı verilerle çalışmak için tasarlanmış nöral ağlardır. Her adımda, girdiyi ve önceki gizli durumu alarak yeni bir gizli durum üretirler. Bu şekilde, geçmiş bilgileri hatırlayabilir ve sıralı veriler üzerinde işlem yapabilirler. Ancak, RNN'ler uzun dizilerdeki bağımlılıkları öğrenmede zorlanabilirler ve bu da performanslarını sınırlayabilir.
+### LSTM (Long Short-Term Memory)
 
-Transformer
-Transformer mimarisi, doğal dil işleme görevlerinde devrim yaratmıştır. RNN'lerin aksine, Transformer mimarisi paralel işlemeyi mümkün kılarak daha hızlı ve daha verimli eğitim sağlar. Transformer modelleri, sıralı verilerle çalışırken her adımda tüm girdiyi dikkate alarak çalışır ve bu da uzun bağımlılıkları öğrenmeyi kolaylaştırır.
+LSTM, RNN'lerin Vanishing Gradient problemini çözmek için tasarlanmıştır. Hafıza hücreleri ve kapılar (gates) kullanarak uzun vadeli bağımlılıkları öğrenmeyi sağlar.
 
-### Transformer Mimarisi
+### GRU (Gated Recurrent Unit)
 
-![Transformer Mimarisi](./imgs/transformers_architecture.png)
+GRU, LSTM'e benzer bir yapıya sahiptir ancak daha basit bir yapıya sahiptir. LSTM'den daha hızlıdır ve daha az parametreye sahiptir.
 
-Attention Mekanizmaları
-Attention mekanizmaları, modelin önemli bilgilere odaklanmasını sağlar. Bu mekanizmalar, her adımda tüm girdileri dikkate alarak, her bir girdinin önem derecesine göre ağırlıklandırılmış bir çıktı üretir. Bu sayede, modelin dikkat etmesi gereken kritik bilgileri öğrenmesi sağlanır.
+### Transformer
 
-Attention mekanizmaları, özellikle Transformer mimarisinde büyük önem taşır. Transformer'lar, hem encoder (kodlayıcı) hem de decoder (çözücü) katmanlarında attention mekanizmalarını kullanır ve bu sayede girdilerin ilişkilerini etkili bir şekilde öğrenir.
+Transformer mimarisi 2017 yılında "Attention is All You Need" makalesi ile tanıtılmıştır. RNN ve LSTM'in sıralı verilerdeki zorluklarına alternatif olarak geliştirilmiştir.
+Transformer mimarisi, paralel işleme imkanı sunarak daha hızlı ve verimli eğitim sağlar. Uzun bağımlılıkları öğrenmeyi kolaylaştırır.
+Bu mimari adeta bir çağ kapatıp yeni bir çağ açmıştır.
 
-### RNN-GRU-LSTM-Tranformer temsili
+![RNN-GRU-LSTM-Tranformer Temsili](./imgs/rnn-lstm-gru-transformers.png)
 
-![RNN-GRU-LSTM-Tranformer temsili](./imgs/rnn-lstm-gru-transformers.png)
+### Attention Mekanizmaları
 
-Büyük Dil Modellerinin Gücü
-Büyük dil modellerinin bu kadar güçlü olmasının nedeni, geniş ve çeşitli veri kümeleri üzerinde eğitilmeleridir. Bu sayede, dilin karmaşıklıklarını ve inceliklerini öğrenirler ve geniş bir bilgi tabanına sahip olurlar. Ancak, bu modeller genellikle genel amaçlıdır ve belirli bir görev için en iyi performansı sağlamak için ince ayar gerektirebilirler.
+Modelin önemli bilgilere odaklanmasını sağlar. Girdilerin ilişkilerini etkili bir şekilde öğrenmek için encoder ve decoder katmanlarında kullanılır.
 
-Özetle, Büyük Dil Modelleri, dil anlama ve üretme yetenekleriyle birçok alanda devrim yaratmış ve çeşitli uygulamalarda kullanılmaktadır. Bu modeller, doğal dil işleme alanında daha önce mümkün olmayan çözümler sunarak, kullanıcıların ihtiyaçlarını karşılamada ve karmaşık dil görevlerini yerine getirmede büyük avantajlar sağlar.
+## Büyük Dil Modellerinin Gücü
+
+Büyük dil modelleri, geniş ve çeşitli veri kümeleri üzerinde eğitilir. Dilin karmaşıklıklarını ve inceliklerini öğrenirler ve geniş bir bilgi tabanına sahip olurlar. Ancak, bu modeller genellikle genel amaçlıdır ve belirli bir görev için en iyi performansı sağlamak üzere ince ayar gerektirebilirler.
+Büyük Dil Modelleri, dil anlama ve üretme yetenekleriyle birçok alanda devrim yaratmış ve çeşitli uygulamalarda kullanılmaktadır. Doğal dil işleme alanında daha önce mümkün olmayan çözümler sunarak, kullanıcıların ihtiyaçlarını karşılamada ve karmaşık dil görevlerini yerine getirmede büyük avantajlar sağlar.
+
+## Örnek Modeller ve Kullanımları
+
+- **GPT-3:** Metin üretme konusunda oldukça başarılı; hikaye yazma, makale oluşturma veya müşteri hizmetleri botları gibi çeşitli alanlarda kullanılabilir.
+- **BERT:** Metinleri anlamada üstün performans gösterir; metin sınıflandırma, duygu analizi veya metin içindeki bilgilere dair soruları yanıtlama gibi işlemler için idealdir.
+- **T5:** Çeviri, metin özetleme ve soru yanıtlama gibi çeşitli dil görevlerinde kullanılır.
