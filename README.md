@@ -19,7 +19,8 @@ RNN'ler, sıralı verilerle çalışmak için tasarlanmış nöral ağlardır. H
 Transformer
 Transformer mimarisi, doğal dil işleme görevlerinde devrim yaratmıştır. RNN'lerin aksine, Transformer mimarisi paralel işlemeyi mümkün kılarak daha hızlı ve daha verimli eğitim sağlar. Transformer modelleri, sıralı verilerle çalışırken her adımda tüm girdiyi dikkate alarak çalışır ve bu da uzun bağımlılıkları öğrenmeyi kolaylaştırır.
 
-Transformer Mimarisi
+### Transformer Mimarisi
+
 ![Transformer Mimarisi](./imgs/transformers_architecture.png)
 
 Attention Mekanizmaları
